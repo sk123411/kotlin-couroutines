@@ -52,6 +52,9 @@ class PointsActivity : AppCompatActivity() {
         val playerListView = findViewById<RecyclerView>(R.id.playerList)
 
 
+        
+
+
         //GLOBALSCOPE WITH GLOBALSCOPE AND ASYNC
 
 //        GlobalScope.launch(Dispatchers.IO) {
@@ -142,14 +145,14 @@ class PointsActivity : AppCompatActivity() {
         GlobalScope.launch(Dispatchers.IO) {
             val time = measureTimeMillis {
 
-                val job1 = launch {
+                launch {
                     playerModelList.forEach {
                         playerNameWithId.put(it.id.toString(), it.name)
 
                     }
                 }
 
-                val job2 = launch {
+                 launch {
 
                     scoreModelList.forEach { it ->
                         var currentPlayerId: String? = ""
@@ -195,7 +198,7 @@ class PointsActivity : AppCompatActivity() {
 
                 }
 
-                val job3 = launch {
+                 launch {
 
                     playerNameWithId.forEach { m ->
 
@@ -213,9 +216,12 @@ class PointsActivity : AppCompatActivity() {
 //                job2.join()
 //                job3.join()
 
+
+
             }
             Log.d("TAGGGG", "Time taken:${time}")
         }
+
 
 
         //GLOBALSCOPE WITH ASYNC
@@ -293,7 +299,6 @@ class PointsActivity : AppCompatActivity() {
 //            }
 //            Log.d("TAGGGG", "Time taken:${time}")
 //        }
-
 
 
 
