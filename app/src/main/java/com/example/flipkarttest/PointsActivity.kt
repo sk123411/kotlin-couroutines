@@ -52,7 +52,9 @@ class PointsActivity : AppCompatActivity() {
         val playerListView = findViewById<RecyclerView>(R.id.playerList)
 
 
-        
+        val playerProfilesObservables = Observable.fromArray(playerModelList)
+        val playerMatchesObservable = Observable.fromArray(scoreModelList);
+
 
 
         //GLOBALSCOPE WITH GLOBALSCOPE AND ASYNC
